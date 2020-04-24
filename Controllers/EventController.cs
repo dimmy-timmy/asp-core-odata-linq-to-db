@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using LinqToDB;
 using LinqToDB.Data;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -33,9 +34,9 @@ namespace asp_core_odata_linq_to_db.Controllers
         }
         
         [EnableQuery()]
-        public IQueryable<Event> Get()
+        public async Task<Event[]> Get(ODataQueryOptions<Event> options)
         {
-            return _connection.GetTable<Event>();
+            return await options.ApplyTo(_connection.GetTable<Event>()).Cast<Event>().ToArrayAsync();
         }
     }
 }

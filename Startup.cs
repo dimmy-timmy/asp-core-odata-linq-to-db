@@ -49,7 +49,7 @@ namespace asp_core_odata_linq_to_db
             app.UseEndpoints(o =>
             {
                 o.MapControllers();
-                o.Select().Filter().OrderBy().Count().MaxTop(10);
+                o.Filter().OrderBy().Count().MaxTop(10);
                 o.MapODataRoute("odata", "odata", GetEdmModel());
                 
             });
