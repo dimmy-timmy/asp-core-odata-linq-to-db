@@ -14,3 +14,7 @@ Run:
 npm install
 npm start
 ```
+## .Net Consumer Example
+Base on https://github.com/simple-odata-client/Simple.OData.Client
+See `Controllers/EventConsumerController.cs`
+`https://localhost:5001/eventconsumer`
